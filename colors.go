@@ -7,6 +7,10 @@ import (
 	"time"
 )
 
+func init() {
+	rand.Seed(time.Now().Unix())
+}
+
 //Color is the RGBA value of any color.
 type Color struct {
 	R int
@@ -64,7 +68,6 @@ func ColorFromHex(hexString string) (*Color, error) {
 //RandomColor will generate a random color to use.
 //The alpha channel will stay at 1.0
 func RandomColor() *Color {
-	rand.Seed(time.Now().Unix())
 	red := rand.Intn(256)
 	green := rand.Intn(256)
 	blue := rand.Intn(256)
