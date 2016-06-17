@@ -13,14 +13,16 @@ func init() {
 
 //Color is the RGBA value of any color.
 type Color struct {
-	R int
-	G int
-	B int
-	A float64
+	R          int
+	G          int
+	B          int
+	A          float64
+	brightness float64
 }
 
 const (
-	rgbaFormater = "rgba(%d, %d, %d, %f)"
+	rgbaFormater  = "rgba(%d, %d, %d, %f)"
+	maxBrightness = (0.2126 * 255.0) + (0.7152 * 255.0) + (0.0722 * 255.0)
 )
 
 //NewColor creates a color with the given Red, Green, Blue, and Alpha values.
@@ -39,11 +41,14 @@ func NewColor(r, g, b int, a float64) (*Color, error) {
 	if a < 0.0 || a > 1.0 {
 		return nil, newError(errValueOutOfRange, "Alpha needs to be between 0.0 and 1.0")
 	}
+
+	brightness := (0.2126 * float64(r)) + (0.7152 * float64(g)) + (0.0722 * float64(b))
 	return &Color{
-		R: r,
-		G: g,
-		B: b,
-		A: a,
+		R:          r,
+		G:          g,
+		B:          b,
+		A:          a,
+		brightness: brightness,
 	}, nil
 }
 

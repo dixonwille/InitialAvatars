@@ -62,6 +62,12 @@ func (a *Avatar) Create(w io.Writer) {
 }
 
 func (a *Avatar) makeSVG() {
+	var fontColor *Color
+	if a.color.brightness < maxBrightness/2 {
+		fontColor, _ = ColorFromHex("ffffff")
+	} else {
+		fontColor, _ = ColorFromHex("000000")
+	}
 	a.svg.Startview(a.size, a.size, 0, 0, a.size, a.size)
 	a.svg.Title(a.title)
 	a.svg.Desc(a.desc)
@@ -71,7 +77,7 @@ func (a *Avatar) makeSVG() {
 		text-anchor:middle;
 		alignment-baseline:central;
 		font-size:%fpx;
-		fill:white;`, float64(a.size)*0.50))
+		fill:%s;`, float64(a.size)*0.50, fontColor.String()))
 	a.svg.Gend()
 	a.svg.End()
 }
