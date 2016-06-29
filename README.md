@@ -10,6 +10,6 @@ The only endpoint that is open is `/avatar/{initials}`. `initials` is used as th
 ## Development
 If a `.env` file exist in the root directory of where the server is running, it will update all the environment variables you set in it. Currently it is only looking for port.
 ```
-PORT = 8080
+AVATAR_PORT = 8080
 ```
 This will bind the server to listen on port `8080`. If not variable is found then port `80` is used by default.

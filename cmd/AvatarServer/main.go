@@ -17,7 +17,7 @@ var (
 
 func init() {
 	godotenv.Load()
-	port = os.Getenv("PORT")
+	port = os.Getenv("AVATAR_PORT")
 	if port == "" {
 		port = "80"
 	}
