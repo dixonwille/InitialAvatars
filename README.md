@@ -20,6 +20,7 @@ This will bind the server to listen on port `8080`. If not variable is found the
 I have included a systemd service file that you can use to set this server to run on system boot. If you are using this file it is recommended that it is put in `/usr/lib/systemd/system` and any changes you want to make are put in `/etc/systemd/system`. In the later I would change the `ExecStart` to point to where you installed the server (default is `/usr/bin/AvatarServer`). Also add an `Environment` variable here for `AVATAR_PORT` if you would like for the server to listen on something other than port `80`.
 
 So for example:
+
 1. Create a folder `/etc/systemd/system/avatarServer.service.d/`
 2. Create file in this folder named `avatarServer.conf` (only requirement is it is suffixed with `.conf`)
 3. Add settings that you would like to include or override with the default file (the one located in `/usr/lib/systemd/system`)
