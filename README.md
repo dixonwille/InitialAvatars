@@ -8,7 +8,7 @@ There are two commands that use this package. `Avatar` is a command line tool th
 The only endpoint that is open is `/avatar/{initials}`. `initials` is used as the text inside the circle. You can tack on the `color` query parameter like so `/avatar/wd?color=ff0000` and give it a 6 digit hex value for the color you want to use. If a `color` is not supplied it will generate a random color for you.
 
 ## Development
-If a `.env` file exist in the root directory of where the server is running, it will update all the environment variables you set in it. Currently it is only looking for port.
+If a `.env` file exist in the root directory of where the server is running, it will update all the environment variables you set in it. Currently it is only looking for what port it listens on.
 ```
 AVATAR_PORT = 8080
 ```
