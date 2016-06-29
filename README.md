@@ -25,6 +25,7 @@ So for example:
 2. Create file in this folder named `avatarServer.conf` (only requirement is it is suffixed with `.conf`)
 3. Add settings that you would like to include or override with the default file (the one located in `/usr/lib/systemd/system`)
 4. Such a file may look like this:
+
   ```
 [Service]
 Environment="AVATAR_PORT=8080"
