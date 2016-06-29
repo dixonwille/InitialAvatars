@@ -15,6 +15,8 @@ AVATAR_PORT = 8080
 This will bind the server to listen on port `8080`. If not variable is found then port `80` is used by default.
 
 ## Systemd Daemon
+**NOTE: Must compile before trying to run it.**
+
 I have included a systemd service file that you can use to set this server to run on system boot. If you are using this file it is recommended that it is put in `/usr/lib/systemd/system` and any changes you want to make are put in `/etc/systemd/system`. In the later I would change the `ExecStart` to point to where you installed the server (default is `/usr/bin/AvatarServer`). Also add an `Environment` variable here for `AVATAR_PORT` if you would like for the server to listen on something other than port `80`.
 
 So for example:
