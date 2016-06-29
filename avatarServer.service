@@ -1,0 +1,13 @@
+[Unit]
+Description="A server that will create avatars with given initials."
+Documentation="https://github.com/dixonwille/InitialAvatars"
+Requires=network.target
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/AvatarServer
+Restart=on-failure
