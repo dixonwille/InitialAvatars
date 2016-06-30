@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,18 +13,21 @@ import (
 )
 
 var (
-	port string
+	osPort string
+	port   string
 )
 
 func init() {
 	godotenv.Load()
-	port = os.Getenv("AVATAR_PORT")
-	if port == "" {
-		port = "80"
+	osPort = os.Getenv("AVATAR_PORT")
+	if osPort == "" {
+		osPort = "80"
 	}
+	flag.StringVar(&port, "l", osPort, "Port to listen on")
 }
 
 func main() {
+	flag.Parse()
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/avatar/{initials}", handlers.Avatar).Methods("GET")
 	router.NotFoundHandler = http.HandlerFunc(handlers.NotFound)

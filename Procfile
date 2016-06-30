@@ -1,1 +1,1 @@
-web: AvatarServer
+web: AvatarServer -l $PORT
