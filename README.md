@@ -14,6 +14,8 @@ AVATAR_PORT = 8080
 ```
 This will bind the server to listen on port `8080`. If not variable is found then port `80` is used by default.
 
+You can also use the `-l` flag to specify what port to listen on. If both are used then the flag takes priority.
+
 ## Systemd Daemon
 **NOTE: Must compile before trying to run it.**
 
