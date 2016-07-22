@@ -65,8 +65,7 @@ func ColorFromHex(hexString string) (*Color, error) {
 	r := int(hexBytes[0])
 	g := int(hexBytes[1])
 	b := int(hexBytes[2])
-	color, _ := NewColor(r, g, b, 1.0)
-	return color
+	return NewColor(r, g, b, 1.0)
 }
 
 //RandomColor will generate a random color to use.
