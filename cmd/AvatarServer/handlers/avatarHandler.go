@@ -25,6 +25,9 @@ func Avatar(w http.ResponseWriter, r *http.Request) {
 	if colorHex == "" {
 		color = avatar.RandomColor()
 	} else {
+		if colorHex[0] == byte('#') {
+			colorHex = colorHex[1:]
+		}
 		color, err = avatar.ColorFromHex(colorHex)
 		if err != nil {
 			if avatar.IsInvalidValue(err) || avatar.IsValueOutOfRange(err) {
