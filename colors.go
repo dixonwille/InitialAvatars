@@ -62,12 +62,11 @@ func ColorFromHex(hexString string) (*Color, error) {
 	if err != nil {
 		return nil, newError(errInvalidValue, "Hex String can only contain the Characters 0-9 and a-f")
 	}
-	return &Color{
-		R: int(hexBytes[0]),
-		G: int(hexBytes[1]),
-		B: int(hexBytes[2]),
-		A: 1.0,
-	}, nil
+	r := int(hexBytes[0])
+	g := int(hexBytes[1])
+	b := int(hexBytes[2])
+	color, _ := NewColor(r, g, b, 1.0)
+	return color
 }
 
 //RandomColor will generate a random color to use.
